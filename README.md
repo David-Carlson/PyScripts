@@ -15,7 +15,7 @@ PlotImage.py [-h] [-p POINTS] [-pp] [-s] IMG_PATHS [IMG_PATHS ...]
 Creates a 3D scatter plot of the colors present in an image
 
 positional arguments:
-IMG_PATHS             Image filepaths to plot
+  IMG_PATHS             Image filepaths to plot
 
 optional arguments:
   -h, --help            show this help message and exit
