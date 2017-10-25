@@ -9,9 +9,18 @@ This project aims to take input images and plot them as a 3D Scatter plot.
 ```
 python PlotImage.py *.jpg --points 20000 --save --pprint
 ```
-PlotImage expect at least one image filepath, and will accept optional parameters
-- --points [number] (Limits the number of pixels plotted)
-- --save            (Will save each plot as 'pprint-originalname')
-- --pprint          (Removes axis labels, titles and other details from the plot)
+PlotImage.py [-h] [-p POINTS] [-pp] [-s] IMG_PATHS [IMG_PATHS ...]
 
-### 2. Processing 
+Creates a 3D scatter plot of the colors present in an image
+
+positional arguments:
+  IMG_PATHS             Image filepaths to plot
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -p, --points POINTS   Max number of pixels to plot
+  -pp, --pprint         Pretty prints the scatter plots without extra information
+  -s, --save            Saves each plotted image as pprint-originalfilename
+
+### 2.  Processing Reddit links
+This script takes a list of links and regular text as input, 

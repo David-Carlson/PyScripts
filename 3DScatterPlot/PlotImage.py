@@ -1,7 +1,5 @@
 import numpy as np
 from mpl_toolkits.mplot3d import Axes3D
-from scipy.misc import imread
-from scipy import misc
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import argparse
@@ -63,7 +61,7 @@ def plot(imagePath, points=10000, pprint=False, save=False):
     plt.show()
 
 def prepend_pprint(path):
-    """ Adds 'pprint-' before the image name """
+    """ Adds 'pprint-' before the filepath name """
     (head, tail) = os.path.split(path)
     return os.path.join(head, 'pprint-' + tail)
 
@@ -91,9 +89,9 @@ def is_valid_image(arg):
             raise argparse.ArgumentTypeError(f"Something wrong with input files")
 
 if __name__ =="__main__":
-    parser = argparse.ArgumentParser(description='Creates a 3D scatter plot of colors in an image')
+    parser = argparse.ArgumentParser(description='Creates a 3D scatter plot of the colors present in an image')
     parser.add_argument('input_files', metavar='IMG_PATHS', nargs='+',
-                        type=is_valid_image, help="An image to graph")
+                        type=is_valid_image, help="Image filepaths to plot")
     parser.add_argument('-p', '--points', type=int,
                         default=10000, help="Max number of pixels to plot")
     parser.add_argument('-pp', '--pprint', help='Prints the scatter plots without extra information', action='store_true' )
