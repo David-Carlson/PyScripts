@@ -10,7 +10,7 @@ import os.path
 # Colors are an RGB or RGBA tuple of floats in [0, 1]
 # colors = [tuple(image[r, c,:] / 255) for r in range(image.shape[0]) for c in range(image.shape[1])]
 
-def plot(imagePath, points=10000, pprint=False, save=False):
+def plot(imagePath, points=10000, pprint=False, save=False, display=True):
     """
     Plot an image as a 3D scatter plot
 
@@ -56,14 +56,19 @@ def plot(imagePath, points=10000, pprint=False, save=False):
     ax.w_yaxis.set_pane_color((225/255,247/255,213/255,255/255))
     ax.w_zaxis.set_pane_color((201/255,201/255,255/255,255/255))
 
+    # Allow to save - change filename based on prettyprint setting
     if save:
-        plt.savefig(prepend_pprint(path))
-    plt.show()
+        if pprint:
+            plt.savefig(prepend_pprint(path, 'pprint-'))
+        else:
+            plt.savefig(prepend_pprint(path, 'print-'))
+    if display:
+        plt.show()
 
-def prepend_pprint(path):
-    """ Adds 'pprint-' before the filepath name """
+def prepend_pprint(path, prefix):
+    """ Adds prefix before the filepath name """
     (head, tail) = os.path.split(path)
-    return os.path.join(head, 'pprint-' + tail)
+    return os.path.join(head, prefix + tail)
 
 
 def is_valid_image(arg):
@@ -92,10 +97,11 @@ if __name__ =="__main__":
     parser = argparse.ArgumentParser(description='Creates a 3D scatter plot of the colors present in an image')
     parser.add_argument('input_files', metavar='IMG_PATHS', nargs='+',
                         type=is_valid_image, help="Image filepaths to plot")
-    parser.add_argument('-p', '--points', type=int,
+    parser.add_argument('-p', '--points', type=int, metavar="Pts",
                         default=10000, help="Max number of pixels to plot")
     parser.add_argument('-pp', '--pprint', help='Prints the scatter plots without extra information', action='store_true' )
-    parser.add_argument('-s', '--save', help='Saves each plotted image as pprint-originalfilename', action='store_true')
+    parser.add_argument('-s', '--save', help='Saves each plot prefixed with pprint- or print-', action='store_true')
+    parser.add_argument('--nodisplay', help="Don't graph plots", action='store_true')
     args = parser.parse_args()
     for path in args.input_files:
-        plot(path, args.points, args.pprint, args.save)
+        plot(path, args.points, args.pprint, args.save, not args.nodisplay)

@@ -25,4 +25,5 @@ optional arguments:
 ```
 
 ### 2.  Processing Reddit links
-This script takes a list of links and regular text as input,
+This script takes a list of links & regular text as input and converts the links
+titles into a readable format.
