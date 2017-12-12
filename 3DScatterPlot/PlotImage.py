@@ -53,8 +53,8 @@ def plot(imagePath, points=10000, pprint=False, save=False, display=True):
 
     # Draw each axis pane with RGB in pastel colors
     ax.w_xaxis.set_pane_color((255/255, 189/255, 189/255, 255/255))
-    ax.w_yaxis.set_pane_color((225/255,247/255,213/255,255/255))
-    ax.w_zaxis.set_pane_color((201/255,201/255,255/255,255/255))
+    ax.w_yaxis.set_pane_color((225/255, 247/255, 213/255, 255/255))
+    ax.w_zaxis.set_pane_color((201/255, 201/255, 255/255, 255/255))
 
     # Allow to save - change filename based on prettyprint setting
     if save:
