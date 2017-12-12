@@ -6,6 +6,7 @@ from operator import xor
 from itertools import product
 
 def isPointNearRect(point, rect, distance):
+    """ Returns true when point is distance units away from rect """
     p_rect = pointInRectLocalCoords(point, rect)
     p_absolute = abs(p_rect)
 
@@ -18,16 +19,20 @@ def isPointNearRect(point, rect, distance):
     else:
         return np.any((0 < p_corner) & (p_corner < distance))
 def getColor(isInside):
+    """ Returns color of points depending on if they're close to rect """
     if isInside:
         return 'green'
     else:
         return 'red'
 def getSize(isInside):
+    """ Returns size of points depending on if they're close to rect """
     if isInside:
         return 1.1
     else:
         return 0.2
 def pointInRectLocalCoords(point, rect):
+    """ Returns the coordinates of point relative to rect.
+        Effectively reverses the rotation and translation of the rect """
     # V_world = P * V_rect, where P are the rect's axes
     # V_rect = P^-1 * V_world
     p_relative = point - rect.center
@@ -38,6 +43,16 @@ def pointInRectLocalCoords(point, rect):
     return p_relativeAfterRot
 
 def graphPoints(rect, dist, x_range, y_range):
+    """ Graphs points within dist of rect as green, otherwise red.
+            Rect: namedtuple representing rectangle
+                center : 2d Vec for position
+                localX : 2d Vec showing dir of X axis
+                localY : 2d Vec showing dir of Y x_axis
+                extents: 2d Vec showing length and width
+            Dist: Acceptable distance to rect
+            x_range: A range showing which x points to graph
+            y_range: A range showing which y points to graph
+    """
     for (x, y) in product(x_range, y_range):
         isInside = isPointNearRect(np.array([x,y]), rect, dist)
         plt.scatter(x, y,
@@ -47,6 +62,7 @@ def graphPoints(rect, dist, x_range, y_range):
     plt.show()
 
 def normalize(v):
+    """ Creates a new normalized vector given a vector """
     norm=np.linalg.norm(v, ord=1)
     if norm==0:
         norm=np.finfo(v.dtype).eps
