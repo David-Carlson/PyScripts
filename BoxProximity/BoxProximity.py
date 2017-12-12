@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from numpy.linalg import inv
-from numpy.linalg import norm
+from numpy.linalg import inv, norm
 from collections import namedtuple
 from operator import xor
 from itertools import product
