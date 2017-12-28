@@ -72,9 +72,9 @@ def normalize(v):
 if __name__=="__main__":
     Rectangle = namedtuple("Rect", "center localX localY extents")
     rect = Rectangle(np.array([0, 0]), # center
-                     normalize(np.array([1, 1])),   # localX
-                     normalize(np.array([-1, 1])),   # localY
-                     np.array([10, 5])) # extents
+                     normalize(np.array([1, 0])),   # localX
+                     normalize(np.array([0, 1])),   # localY
+                     np.array([0, 0])) # extents
     point = np.array([-10, -10])
 
-    graphPoints(rect, 10, range(-30, 30), range(-30, 30))
+    graphPoints(rect, 20, range(-30, 30), range(-30, 30))
