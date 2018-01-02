@@ -2,7 +2,6 @@
 This project aims to take input images and plot them as a 3D Scatter plot.
 
 
-
 #### Usage
 ```
 python PlotImage.py *.jpg --points 20000 --save --pprint
