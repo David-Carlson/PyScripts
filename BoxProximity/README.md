@@ -1,4 +1,4 @@
-# [Box proximity Detection](https://github.com/David-Carlson/PyScripts/tree/master/BoxProximity) — [—Blog Post](https://david-carlson.github.io/blog/box-proximity)
+# [Box proximity Detection](https://github.com/David-Carlson/PyScripts/tree/master/BoxProximity) — [Blog Post](https://david-carlson.github.io/blog/box-proximity)
 I wrote this to solve a challenge. In essence, decide whether a point is within a distance of a rectangle, which might be rotated. View the link above for further description of the math.
 
 ### Usage
