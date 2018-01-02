@@ -75,9 +75,7 @@ def turnStringToNumList(argcount, numString):
         Only returns if list has length of argcount
         i.e (5,2),(10,10),(1,0),(0,1) """
     try:
-        # print(numString)
         withoutparens = re.sub('[()]','',  numString)
-        # print(withoutparens)
         nums = [float(x) for x in withoutparens.split(',')]
         if len(nums) != argcount:
             raise argparse.ArgumentTypeError('Wrong number of arguments')
@@ -90,15 +88,15 @@ if __name__=="__main__":
     e.g python BoxProximity.py --rect "(5,2),(10,10),(1,0),(0,1)" --distance 5
     Would plot the rect centered at (5,2), dimensions (10,10) and unchanged x/y axes
     """
-    parser = argparse.ArgumentParser(description='Plots points near a rectangle')
+    parser = argparse.ArgumentParser(description='Plots points within a distance to a rectangle')
     parser.add_argument('-r', '--rect',
-        help="Comma separated list of the rect's position, dimensions, x-axis, y-axis",
+        help="Comma separated list of numbers describing the rectangle: (X,Y),(Length,Height),(LocalX_X,LocalX_Y),(LocalY_X,LocalY_Y)",
         type=lambda x: turnStringToNumList(8, x),
         default=[0,0,10,5,1,0,0,1])
     parser.add_argument('-d', '--distance', help='Acceptable distance to rectangle',
         type=float, default=0.0)
     parser.add_argument('--plotranges',
-        help='Plots all points in the x and y Range, (xmin,xmax),(ymin,ymax)',
+        help='Plots a rectangle of points in the X and Y ranges: (Xmin,Xmax),(Ymin,Ymax)',
         type=lambda x: turnStringToNumList(4, x),
         default=[-15,15,-15,15])
     args = parser.parse_args()

@@ -3,19 +3,18 @@ I wrote this to solve a challenge. In essence, decide whether a point is within 
 
 ### Usage
 ```
-python BoxProximity.py --rect "(0,0),(10,10),(1,0),(0,1)" --distance 5
+python BoxProximity.py --rect "(0,0),(10,5),(1,0),(0,1)" --distance 5 --plotranges "(-15,15),(-10,10)"
 ```
 ```
 usage: BoxProximity.py [-h] [-r RECT] [-d DISTANCE] [--plotranges PLOTRANGES]
 
-Plots points near a rectangle
+Plots points within a distance to a rectangle
 
 optional arguments:
-  -h, --help            show this help message and exit
-  -r, --rect  Comma separated list of the rect's position,
-                        dimensions, x-axis, y-axis
-  -d, --distance         Acceptable distance to rectangle
-  --plotranges PLOTRANGES
-                        Plots all points in the x and y Range,
-                        (xmin,xmax),(ymin,ymax)
+  -h, --help            Show this help message and exit
+  -r, --rect            Comma separated list of numbers describing the rectangle:
+                          (X,Y),(Length,Height),(LocalX_X,LocalX_Y),(LocalY_X,LocalY_Y)
+  -d, --distance        Acceptable distance to rectangle
+  --plotranges          Plots a rectangle of points in the X and Y ranges:
+                          (Xmin,Xmax),(Ymin,Ymax)
 ```
