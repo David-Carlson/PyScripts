@@ -3,7 +3,7 @@ I wrote this to solve a challenge. In essence, decide whether a point is within 
 
 ### Usage
 ```
-python BoxProximity.py "(0,0),(10,10),(1,0),(0,1)" --distance 5
+python BoxProximity.py --rect "(0,0),(10,10),(1,0),(0,1)" --distance 5
 ```
 ```
 usage: BoxProximity.py [-h] [-r RECT] [-d DISTANCE] [--plotranges PLOTRANGES]
