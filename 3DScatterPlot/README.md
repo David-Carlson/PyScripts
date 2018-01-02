@@ -1,4 +1,4 @@
-# [3D Scatter Plot](https://david-carlson.github.io/blog/3D-Scatter-plots)
+# [3D Scatter Art](https://github.com/David-Carlson/PyScripts/tree/master/3DScatterPlot) -- [Blog Post](https://david-carlson.github.io/blog/3D-Scatter-plots)
 This project aims to take input images and plot them as a 3D Scatter plot.
 
 
